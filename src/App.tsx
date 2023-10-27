@@ -7,7 +7,7 @@ import Navbar from "/src/components/Navbar";
 
 export default function App(): React.FC {
   return (
-    <Router>
+    <Router basename={import.meta.env.PUBLIC_URL}>
       <SlideRoutes>
         <Route path="/" element={<Home />} />
         <Route path="/identify" element={<Identify />} />
