@@ -49,7 +49,7 @@ export default function Identify(): React.FC {
 
   return (
     <main>
-      <h1>By Gender.</h1>
+      <h1>Identify.</h1>
       <div className="inputWrap">
         <input
           type="text"
