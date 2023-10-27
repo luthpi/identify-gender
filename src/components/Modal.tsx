@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Modal(props) {
+export default function Modal(props: object): React.FC {
   if(props.name && props.type) {
     return (
     <div className="flex z-50 backdrop-blur-sm fixed inset-0 w-screen h-screen bg-transparent justify-center items-start px-4 py-[80px] animate__animated animate__fadeInDown animate__faster">

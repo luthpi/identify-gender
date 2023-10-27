@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "/src/components/Modal";
+import Modal from "../components/Modal";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { AiOutlineClose } from "react-icons/ai";
 import "./css/pages.css";
@@ -9,7 +9,7 @@ export default function Identify(): React.FC {
   const [input, setInput] = useState("");
   const [modal, setModal] = useState(false);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: object) => {
     const value = e.target.value;
     setInput(value);
   };
@@ -51,7 +51,7 @@ export default function Identify(): React.FC {
   return (
     <main>
       <h1>By Gender.</h1>
-      <div class="inputWrap">
+      <div className="inputWrap">
         <input
           type="text"
           value={input}
