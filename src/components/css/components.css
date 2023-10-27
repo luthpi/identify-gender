@@ -1,0 +1,26 @@
+#navbar {
+  @apply bg-blue-600 flex justify-center py-4 px-8 fixed bottom-0 w-full text-white rounded-t-2xl;
+}
+
+#navbar ul {
+  @apply flex gap-5 items-end;
+}
+
+#navbar ul li {
+  transition: all 0.3s;
+  @apply w-fit text-sm;
+}
+
+.linkIco {
+  transition: all 0.3s;
+  @apply flex w-[70px] h-[70px] rounded-2xl shadow-lg mb-1 justify-center items-center flex-wrap p-2 bg-blue-500 text-2xl;
+}
+
+.linkIcoActive {
+  transition: all 0.3s;
+  @apply bg-blue-600 w-[70px] h-[70px] shadow-none p-2 flex items-center justify-center rounded-2xl flex-wrap mb-2 text-2xl mb-1;
+}
+
+.link {
+  @apply flex flex-col items-center;
+}

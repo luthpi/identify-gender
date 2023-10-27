@@ -1,0 +1,28 @@
+main {
+  @apply flex items-center justify-center h-[90vh] lg:h-screen w-screen flex-col;
+}
+
+main h1 {
+  @apply text-4xl;
+}
+
+main h2 {
+  @apply text-xl text-gray-700;
+}
+
+main .inputWrap {
+  @apply flex mt-2 border-[1px] rounded-xl border-gray-400;
+}
+
+main input:hover,
+main input:active {
+  @apply outline-none;
+}
+
+main input {
+  @apply p-2 rounded-l-xl border-gray-600;
+}
+
+main button {
+  @apply p-2 px-3 bg-blue-400 text-white text-[16px] shadow-md rounded-r-xl text-xl;
+}
