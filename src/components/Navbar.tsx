@@ -25,7 +25,7 @@ export default function Navbar(): React.FC {
               <BsGenderMale />
               <BsGenderFemale />
             </span>
-            By Gender
+            Identify
           </Link>
         </li>
       </ul>
