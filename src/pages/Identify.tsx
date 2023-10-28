@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import Modal from "../components/Modal";
+import { useNavigate } from "react-router-dom"
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { AiOutlineClose } from "react-icons/ai";
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
 import "./css/pages.css";
 import "animate.css";
 
 export default function Identify(): React.FC {
   const [input, setInput] = useState("");
   const [modal, setModal] = useState(false);
+  const navigate = useNavigate()
 
   const handleInputChange = (e: object) => {
     const value = e.target.value;
@@ -24,10 +27,6 @@ export default function Identify(): React.FC {
     gender: "",
   };
 
-  const [api, setApi] = useState(apiSkeleton);
-
-  const handle = () => setModal(!modal);
-
   function containsWhitespace(str) {
     return str.includes(" ");
   }
@@ -38,45 +37,49 @@ export default function Identify(): React.FC {
         name: "Name shouldn't contain space",
         gender: null,
       };
-      setApi(data);
-    } else {
+      if(data.gender == null) data.gender = "failed to identify"
+      
+          navigate(`/result?name=${data.name}&gender=${data.gender}`)
+    } else if(input) {
       fetch(`https://api.genderize.io?name=${input}`)
         .then<IApi>((res) => res.json())
-        .then((data) => setApi(data));
+        .then((data) => {
+          if(data.gender == null) data.gender = "failed to identify"
+          navigate(`/result?name=${data.name}&gender=${data.gender}`)
+        });
+    } else {
+      const data = {
+        name: "invalid",
+        gender: null,
+      };
+      if(data.gender == null) data.gender = "failed to identify"
+          navigate(`/result?name=${data.name}&gender=${data.gender}`)
     }
-    handle();
   };
 
   return (
     <main>
       <h1>Identify.</h1>
       <div className="inputWrap">
-        <input
+        <TextField 
+          label="Input a name"
           type="text"
+          InputProps={{
+            style: {
+              borderRadius: "19px",
+              padding: "0",
+              height: "100%",
+            }
+          }}
+          size="small"
+          className="input"
           value={input}
           onChange={handleInputChange}
-          placeholder="Input a name"
         />
-        <button onClick={findOut}>
+        <Button onClick={findOut} className="button">
           <HiMagnifyingGlass />
-        </button>
+        </Button>
       </div>
-
-      {modal ? (
-        <>
-          <Modal name={api.name} type="Gender" data={api.gender} />
-          {api.name ? (
-            <button
-              onClick={handle}
-              className="w-[40px] h-[40px] rounded-full bg-blue-500 text-6xl fixed top-[30px] z-[99] flex items-center justify-center animate__animated animate__fadeInDown animate__faster"
-            >
-              <AiOutlineClose />
-            </button>
-          ) : null}
-        </>
-      ) : (
-        ""
-      )}
     </main>
   );
 }

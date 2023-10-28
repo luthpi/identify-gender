@@ -7,4 +7,4 @@ I was bores so I made this.
 
 ## Built with
 
-React, React Slide Routes, Tailwind, Animate.css, React Router, React Icons, Typescript
+React, React Slide Routes, Tailwind, Animate.css, React Router, React Icons, Typescript, MUI
