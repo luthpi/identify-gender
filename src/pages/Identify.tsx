@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { AiOutlineClose } from "react-icons/ai";
-import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 import "./css/pages.css";
 import "animate.css";
 
 export default function Identify(): React.FC {
   const [input, setInput] = useState("");
   const [modal, setModal] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleInputChange = (e: object) => {
     const value = e.target.value;
@@ -37,23 +37,23 @@ export default function Identify(): React.FC {
         name: "Name shouldn't contain space",
         gender: null,
       };
-      if(data.gender == null) data.gender = "failed to identify"
-      
-          navigate(`/result?name=${data.name}&gender=${data.gender}`)
-    } else if(input) {
+      if (data.gender == null) data.gender = "failed to identify";
+
+      navigate(`/result?name=${data.name}&gender=${data.gender}`);
+    } else if (input) {
       fetch(`https://api.genderize.io?name=${input}`)
         .then<IApi>((res) => res.json())
         .then((data) => {
-          if(data.gender == null) data.gender = "failed to identify"
-          navigate(`/result?name=${data.name}&gender=${data.gender}`)
+          if (data.gender == null) data.gender = "failed to identify";
+          navigate(`/result?name=${data.name}&gender=${data.gender}`);
         });
     } else {
       const data = {
         name: "invalid",
         gender: null,
       };
-      if(data.gender == null) data.gender = "failed to identify"
-          navigate(`/result?name=${data.name}&gender=${data.gender}`)
+      if (data.gender == null) data.gender = "failed to identify";
+      navigate(`/result?name=${data.name}&gender=${data.gender}`);
     }
   };
 
@@ -61,7 +61,7 @@ export default function Identify(): React.FC {
     <main>
       <h1>Identify.</h1>
       <div className="inputWrap">
-        <TextField 
+        <TextField
           label="Input a name"
           type="text"
           InputProps={{
@@ -69,7 +69,7 @@ export default function Identify(): React.FC {
               borderRadius: "19px",
               padding: "0",
               height: "100%",
-            }
+            },
           }}
           size="small"
           className="input"

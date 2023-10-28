@@ -3,34 +3,41 @@ main {
 }
 
 #res {
-  @apply flex flex-col h-[90vh] lg:h-screen justify-center px-12
+  @apply flex flex-col h-[90vh] lg:h-screen justify-center px-12;
 }
 
-main h1, #res h1 {
+main h1,
+#res h1 {
   @apply text-4xl font-semibold;
 }
 
-main h2, #res h2 {
+main h2,
+#res h2 {
   @apply text-3xl text-gray-700 mb-2;
 }
 
-main h2::first-letter, #res h2::first-letter {
-  @apply uppercase
+main h2::first-letter,
+#res h2::first-letter {
+  @apply uppercase;
 }
 
-#res .inputWrap, main .inputWrap {
+#res .inputWrap,
+main .inputWrap {
   @apply flex mt-5 gap-3 flex-nowrap box-border;
 }
 
-#res .button, main .button {
+#res .button,
+main .button {
   @apply bg-blue-500 rounded-[19px] text-white shadow-md text-2xl;
 }
 
-#res .button:active, #res .button:hover, main .button:active, main .button:hover {
+#res .button:active,
+#res .button:hover,
+main .button:active,
+main .button:hover {
   @apply bg-blue-600 rounded-[19px] text-white shadow-md text-2xl;
-  
 }
 
 .resLink {
-  @apply text-2xl flex items-center gap-2 w-fit
+  @apply text-2xl flex items-center gap-2 w-fit;
 }
