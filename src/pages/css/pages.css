@@ -1,9 +1,9 @@
 main {
-  @apply flex items-center justify-center h-[90vh] lg:h-screen w-screen flex-col;
+  @apply flex items-center justify-center h-[90vh] lg:h-screen w-screen flex-col px-4 md:px-20;
 }
 
 #res {
-  @apply flex flex-col h-[90vh] lg:h-screen justify-center px-12;
+  @apply flex flex-col h-[90vh] lg:h-screen justify-center px-12 px-4 md:px-20;
 }
 
 main h1,
